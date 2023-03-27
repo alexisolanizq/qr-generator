@@ -6,9 +6,9 @@
                     <h4 class="modal-title">Código QR Generado</h4>
                 </div>
                 <div class="modal-body">
-                    <div class="text-center vertical-buffer">
-                        <div class="relative in-block">
-                            <img class="qr-image" src="../assets/images/UNADM.jpeg" alt="">
+                    <div class="text-center">
+                        <div id="qrCodeImage" class="relative in-block">
+                            <img class="qr-image" :src="logoImg" alt="" />
                             <Qrcode
                                 v-if="qrValue"
                                 :value="url"
@@ -21,6 +21,14 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <a
+                        type="button"
+                        class="btn btn-primary"
+                        id="downloadBtn"
+                        @click="download"
+                    >
+                        Descargar
+                    </a>
                     <button
                         type="button"
                         class="btn btn-default"
@@ -30,26 +38,40 @@
                     </button>
                 </div>
             </div>
-            <!-- /.modal-content -->
         </div>
-        <!-- /.modal-dialog -->
     </div>
-    <!-- /.modal -->
 </template>
 
 <script>
 import Qrcode from "qrcode.vue";
+import html2canvas from "html2canvas";
+import img from "../assets/images/UNADM.jpeg";
 
 export default {
-    props: ["img", "qrValue", "url"],
+    props: ["qrValue", "url"],
     data() {
         return {
             level: "H",
-            size: 200,
+            size: 320,
             color: "#33594C",
+            logoImg: img,
         };
     },
     components: { Qrcode },
+    methods: {
+        download() {
+            console.log(document.querySelector("#qrCodeImage"));
+
+            html2canvas(document.querySelector("#qrCodeImage")).then(
+                (canvas) => {
+                    const a = document.createElement("a");
+                    a.href = canvas.toDataURL("image/png");
+                    a.download = ` ${new Date()}-qr-generator.png`;
+                    a.click();
+                }
+            );
+        },
+    },
 };
 </script>
 

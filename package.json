@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "html2canvas": "^1.4.1",
         "qrcode.vue": "^1.7.0"
     }
 }
