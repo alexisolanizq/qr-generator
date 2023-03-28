@@ -7,6 +7,13 @@ Como iniciar el proyecto:
 
 1. composer install
 2. php artisan key:generate
-3. npm install
-4. npm run dev
-5. php artisan serve
+3. php artisan migrate --seed
+4. npm install
+5. npm run dev
+6. php artisan serve
+
+Usuario de prueba: 
+email: jvasquez@outlook.com
+password: password
+
+

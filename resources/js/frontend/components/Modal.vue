@@ -13,7 +13,7 @@
                                 v-if="qrValue"
                                 :value="url"
                                 :foreground="color"
-                                :level="level"
+                                level="H"
                                 :size="size"
                                 render-as="svg"
                             />
@@ -51,8 +51,7 @@ export default {
     props: ["qrValue", "url"],
     data() {
         return {
-            level: "H",
-            size: 320,
+            size: 300,
             color: "#33594C",
             logoImg: img,
         };
@@ -60,8 +59,6 @@ export default {
     components: { Qrcode },
     methods: {
         download() {
-            console.log(document.querySelector("#qrCodeImage"));
-
             html2canvas(document.querySelector("#qrCodeImage")).then(
                 (canvas) => {
                     const a = document.createElement("a");
@@ -71,8 +68,9 @@ export default {
                 }
             );
         },
+        closeModal(){
+            $('#qrModal').modal('hide')
+        }
     },
 };
 </script>
-
-<style></style>

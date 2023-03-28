@@ -31,3 +31,6 @@
     border: 4px solid #fff;
     border-radius: 10px;
 }
+.modal-dialog{
+    margin-top: 100px!important;
+}
