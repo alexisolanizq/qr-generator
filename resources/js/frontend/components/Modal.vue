@@ -51,7 +51,7 @@ export default {
     props: ["qrValue", "url"],
     data() {
         return {
-            size: 300,
+            size: 450,
             color: "#33594C",
             logoImg: img,
         };

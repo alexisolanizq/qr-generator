@@ -100,7 +100,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ["qrValue", "url"],
   data: function data() {
     return {
-      size: 300,
+      size: 450,
       color: "#33594C",
       logoImg: (_assets_images_UNADM_jpeg__WEBPACK_IMPORTED_MODULE_2___default())
     };
